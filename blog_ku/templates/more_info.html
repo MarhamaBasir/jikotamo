@@ -1,0 +1,265 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Desa Jikotamo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<noscript><link rel="stylesheet" href="{{url_for('static', filename='css/noscript.css')}}" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<h1><a href="index.html">Desa Jikotamo</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="{{url_for('home')}}">Home</a></li>
+											<li><a href="{{url_for('sejarah')}}">Sejarah</a></li>
+											<li><a href="{{url_for('informasi')}}">Info Lainnya</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Main -->
+					<article id="main">
+						<header>
+							<h2>Informasi Lainnya</h2>
+							<p>Semua dapat anda lihat disini</p>
+						</header>
+						<section class="wrapper style5">
+							<div class="inner">
+
+								<section>
+									<h4>Daftar Kepala Desa Jikotamo</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nama</th>
+													<th>Masa Jabatan</th>
+													<th>No. Telp</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for kades in kadess %}
+													<tr>
+														<td>{{ kades.nama }}</td>
+														<td>{{ kades.masa_jabatan }}</td>
+														<td>{{ kades.no_hp }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Umum Desa Jikotamo</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Luas Desa</th>
+													<th>Jumlah Dusun</th>
+													<th>Batas Utara</th>
+													<th>Batas Selatan</th>
+													<th>Batas Barat</th>
+													<th>Batas Timur</th>
+													<th>Jarak ke Kec</th>
+													<th>Jarak ke Kab</th>
+													<th>Jarak ke Prov</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for u in umums %}
+													<tr>
+														<td>{{ u.luas_desa }}</td>
+														<td>{{ u.jumlah_dusun }}</td>
+														<td>{{ u.utara }}</td>
+														<td>{{ u.selatan }}</td>
+														<td>{{ u.barat }}</td>
+														<td>{{ u.timur }}</td>
+														<td>{{ u.jarak_dari_kec }}</td>
+														<td>{{ u.jarak_dari_kab }}</td>
+														<td>{{ u.jarak_dari_prov }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Sarana Penunjang Desa Jikotamo</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>PAUD</th>
+													<th>TK</th>
+													<th>SD</th>
+													<th>SMP/MTS</th>
+													<th>SMA/SMK/MA</th>
+													<th>TPA</th>
+													<th>PUSKESMAS</th>
+													<th>POSYANDU</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for s in saranapenunjangs %}
+													<tr>
+														<td>{{ s.paud }}</td>
+														<td>{{ s.tk }}</td>
+														<td>{{ s.sd }}</td>
+														<td>{{ s.smp }}</td>
+														<td>{{ s.sma }}</td>
+														<td>{{ s.tpa }}</td>
+														<td>{{ s.puskesmas }}</td>
+														<td>{{ s.posyandu }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Anggaran Desa Jikotamo</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Tahun</th>
+													<th>ADD</th>
+													<th>DD</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for anggarandesa in anggarandesas %}
+													<tr>
+														<td>{{ anggarandesa.tahun }}</td>
+														<td>{{ anggarandesa.add }}</td>
+														<td>{{ anggarandesa.dd }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Pengurus Badan Usaha Milik Desa (BUMDES)</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nama</th>
+													<th>Masa Jabatan</th>
+													<th>No. Telp</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for pengurus in pengurusbumdess %}
+													<tr>
+														<td>{{ pengurus.nama_pengurus }}</td>
+														<td>{{ pengurus.masa_jabatan_pengurus }}</td>
+														<td>{{ pengurus.no_hp_pengurus }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Administrasi Badan Usaha Milik Desa (BUMDES)</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nama Kantor BUMDES</th>
+													<th>Alamat Kantor BUMDES</th>
+													<th>No. Telp Kantor BUMDE</th>
+													<th>Email BUMDES</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for a in adminbumdess %}
+													<tr>
+														<td>{{ a.nama_bumdes }}</td>
+														<td>{{ a.alamat_bumdes }}</td>
+														<td>{{ a.no_hp_bumdes }}</td>
+														<td>{{ a.email_bumdes }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Unit Usaha Badan Usaha Milik Desa (BUMDES)</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Nama Unit Usaha BUMDES</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for u in unitusaha %}
+													<tr>
+														<td>{{ u.nama_unit_usaha }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+									<h4>Informasi Keuangan Badan Usaha Milik Desa (BUMDES)</h4>
+									<div class="table-wrapper">
+										<table>
+											<thead>
+												<tr>
+													<th>Penyertaan Modal</th>
+													<th>Penambahan Modal</th>
+												</tr>
+											</thead>
+											<tbody>
+												{% for k in keuangans %}
+													<tr>
+														<td>{{ k.pernyataan_modal }}</td>
+														<td>{{ k.penambahan_modal }}</td>
+													</tr>
+												{% endfor %}
+											</tbody>
+										</table>
+									</div>
+									<hr>
+								</section>
+
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Desa Jikotamo 2020</li><li>Develop: <a href="http://html5up.net">K.One</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrollex.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrolly.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='js/main.js')}}"></script>
+
+	</body>
+</html>

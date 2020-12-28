@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<!--
+	Spectral by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>DESA JIKOTAMO</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{url_for('static', filename='css/main.css')}}" />
+		<noscript><link rel="stylesheet" href="{{url_for('static', filename='css/noscript.css')}}" /></noscript>
+	</head>
+	<body class="landing is-preload">
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="index.html">Desa Jikotamo</a></h1>
+						<nav id="nav">
+							<ul>
+								<li class="special">
+									<a href="#menu" class="menuToggle"><span>Menu</span></a>
+									<div id="menu">
+										<ul>
+											<li><a href="{{url_for('home')}}">Home</a></li>
+											<li><a href="{{url_for('sejarah')}}">Sejarah</a></li>
+											<li><a href="{{url_for('informasi')}}">Info Lainnya</a></li>
+										</ul>
+									</div>
+								</li>
+							</ul>
+						</nav>
+					</header>
+
+				<!-- Banner -->
+					<section id="banner">
+						<div class="inner">
+							<h2>Desa Jikotamo</h2>
+							<p>One of the islands<br />
+							in northern Moluccas<br />
+							eastern part of <a href="https://id.wikipedia.org/wiki/Maluku_Utara">Indonesia</a>.</p>
+						</div>
+						<a href="#one" class="more scrolly">Let's Begin</a>
+					</section>
+
+				<!-- One -->
+					<section id="one" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								{% for info in infos %}
+									<h2>Announcement (Pengumuman)</h2><br>
+									<p>{{ info.title }}</p>
+									<p>{{ info.konten|striptags }} <br>{{ info.ttd }}</p>
+								{% endfor %}
+							</header>
+						</div>
+					</section>
+
+				<!-- Two -->
+					<section id="two" class="wrapper alt style2">
+						<section class="spotlight">
+							<!-- {% for gambar in gambars %}
+								<div class="image"><img src="{{ url_for('static', filename='foto/' + gambar.foto_struktur) }}" alt="" /></div>
+							{% endfor %} -->
+							<div class="image"><img src="{{ url_for('static', filename='foto/sk.jpg') }}" alt="" /></div>
+							<div class="content">
+								<h2>Struktur Pemerintah Desa Jikotamo</h2>
+								<p>Kecamatan OBI Kabupaten Halmahera Selatan</p>
+							</div>
+						</section>
+						<section class="spotlight">
+							<!-- {% for gambars in gambar %}
+								<div class="image"><img src="{{ url_for('static', filename='foto/' + gambars.foto_organisasi) }}" alt="" /></div>
+							{% endfor %} -->
+							<div class="image"><img src="{{ url_for('static', filename='foto/so.jpg') }}" alt="" /></div>
+							<div class="content">
+								<h2>Struktur Organisasi</h2>
+								<p>Badan Permusyarawatan Desa (BPD) Desa Jikotamo</p>
+							</div>
+						</section>
+					</section>
+
+				<!-- Three -->
+					<section id="three" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Profile Penduduk Desa Jikotamo</h2>
+							</header>
+							{% for p in penduduks %}
+								<ul class="features">
+									<li class="icon solid fa-users">
+										<h3>Jumlah Penduduk</h3>
+										<p>{{ p.total }} penduduk</p>
+									</li>
+									<li class="icon solid fa-users">
+										<h3>Jumlah Seluruh KK</h3>
+										<p>{{ p.kk }} kk</p>
+									</li>
+									<li class="icon solid fa-user-friends">
+										<h3>Jumlah Penduduk Laki-laki</h3>
+										<p>{{ p.jumlah_l }} orang</p>
+									</li>
+									<li class="icon solid fa-user-friends">
+										<h3>Jumlah Penduduk Perempuan</h3>
+										<p>{{ p.jumlah_p }} orang</p>
+									</li>
+								</ul>
+							{% endfor %}
+						</div>
+					</section>
+
+				<!-- CTA -->
+					<section id="cta" class="wrapper style4">
+						<div class="inner">
+							{% for a in admindesas %}
+								<header>
+									<h2>Desa Jikotamo</h2>
+									<p>Alamat kantor di <b><u>{{ a.alamat }}</u></b>, hubungi nomor <b><u>{{ a.no_hp }}</u></b> atau silahkan email ke <b><u>{{ a.email }}</u></b> jika ada keperluan</p>
+								</header>
+							{% endfor %}
+							<ul class="actions stacked">
+								<li><a href="https://mail.google.com/mail/u/0/#inbox?compose=new" class="button fit primary">Send Email</a></li>
+								<li><a href="https://id.wikipedia.org/wiki/Jikotamo,_Obi,_Halmahera_Selatan" class="button fit">Read More</a></li>
+							</ul>
+						</div>
+					</section>
+
+				<!-- Footer -->
+					<footer id="footer">
+						<ul class="copyright">
+							<li>&copy; Desa Jikotamo 2020</li><li>Develop: <a href="http://html5up.net">K.One</a></li>
+						</ul>
+					</footer>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{{url_for('static', filename='js/jquery.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrollex.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/jquery.scrolly.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/browser.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/breakpoints.min.js')}}"></script>
+			<script src="{{url_for('static', filename='js/util.js')}}"></script>
+			<script src="{{url_for('static', filename='js/main.js')}}"></script>
+	</body>
+</html>

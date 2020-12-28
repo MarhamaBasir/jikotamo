@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="{{url_for('static', filename='register/fonts/material-icon/css/material-design-iconic-font.min.css')}}f">
+<link rel="stylesheet" href="{{url_for('static', filename='register/css/style.css')}}">
+{% extends "adminku/index_admin.html" %}
+{% block content %}
+<!-- ===============add un p.9================= -->
+	<form action="" method="POST" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-3">Data Info</legend>
+			<div class="form-group">
+				{{ form.title.label(class="form-control-label") }}
+	          	{{ form.title(class='form-control form-control-lg') }}
+	        </div>
+			<div class="form-group">
+				{{ form.konten.label(class="form-control-label") }}
+	            {{ form.konten(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.ttd.label(class="form-control-label") }}
+	            {{ form.ttd(class='form-control form-control-lg') }}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+	</form>  
+
+</div>
+{{ckeditor.load()}}
+{{ckeditor.config(name='konten')}}
+{% endblock content %}
+<script src="{{url_for('static', filename='register/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='register/js/main.js')}}"></script>

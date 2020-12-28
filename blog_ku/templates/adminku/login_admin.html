@@ -1,0 +1,74 @@
+<link rel="stylesheet" href="{{url_for('static', filename='register/fonts/material-icon/css/material-design-iconic-font.min.css')}}f">
+<link rel="stylesheet" href="{{url_for('static', filename='register/css/style.css')}}">
+
+
+{% extends "layout.html" %}
+{% block content %}
+<div style="padding:50px 300px 0px 300px">
+	{% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+          {% for category, message in messages %}
+          <div class="alert alert-{{ category }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+	<div class="main">
+        <section class="signup">
+        	<form action="" method="POST">
+        		{{ form.hidden_tag() }}
+	            <div class="container">
+	                <div class="signup-content">
+	                    <form method="POST" id="signup-form" class="signup-form">
+	                    	<fieldset class="form-group">
+		                        <h2 class="form-title">Login Admin</h2><br>
+		                        <div class="form-group">
+		                            {{ form.username.label(class="form-control-label") }}
+		                            {% if form.username.errors %}
+		                            	{{ form.username(class='form-control form-control-lg is-invalid') }}
+		                            	<div class="invalid-feedback">
+		                            		{% for errors in form.username.errors %}
+		                            		<span>{ error }</span>
+		                            		{% endfor %}
+		                            	</div>
+		                            {% else %}
+		                            	{{ form.username(class='form-control form-control-lg') }}
+		                            {% endif %}
+		                        </div>
+		                        <div class="form-group">
+		                            {{ form.password.label(class="form-control-label") }}
+		                            {% if form.password.errors %}
+		                            	{{ form.password(class='form-control form-control-lg is-invalid') }}
+		                            	<div class="invalid-feedback">
+		                            		{% for errors in form.password.errors %}
+		                            		<span>{ error }</span>
+		                            		{% endfor %}
+		                            	</div>
+		                            {% else %}
+		                            	{{ form.password(class='form-control form-control-lg') }}
+		                            {% endif %}
+		                        </div>
+								<div class="form-check">
+									{{ form.remember(class="form-check-input") }}
+									{{ form.remember.label(class="form-check-label") }}
+								</div>
+
+							</fieldset>
+	                        <div class="form-group">
+	                            {{ form.submit(class="form-submit") }}
+	                        </div>
+	                    </form>
+	                    <p class="loginhere">
+	                        Need an account ? <a href="#" class="loginhere-link">Sign Up here</a>
+	                    </p>
+	                </div>
+	            </div>
+	        </form>
+        </section>
+    </div>
+</div>			
+
+{% endblock content %}
+<script src="{{url_for('static', filename='register/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='register/js/main.js')}}"></script>

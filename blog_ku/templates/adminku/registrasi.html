@@ -1,0 +1,86 @@
+<link rel="stylesheet" href="{{url_for('static', filename='register/fonts/material-icon/css/material-design-iconic-font.min.css')}}f">
+<link rel="stylesheet" href="{{url_for('static', filename='register/css/style.css')}}">
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div style="padding:50px 300px 0px 300px">
+	<div class="main">
+        <section class="signup">
+        	<form action="" method="POST">
+        		{{ form.hidden_tag() }}
+	            <div class="container">
+	                <div class="signup-content">
+	                    <form method="POST" id="signup-form" class="signup-form">
+	                        <h2 class="form-title">Buat Akun Admin</h2><br>
+	                        <div class="form-group">
+	                            {{ form.username.label(class="form-control-label") }}
+	                            {% if form.username.errors %}
+	                            	{{ form.username(class='form-control form-control-lg is-invalid') }}
+	                            	<div class="invalid-feedback">
+	                            		{% for errors in form.username.errors %}
+	                            		<span>{ error }</span>
+	                            		{% endfor %}
+	                            	</div>
+	                            {% else %}
+	                            	{{ form.username(class='form-control form-control-lg') }}
+	                            {% endif %}
+	                        </div>
+	                        <div class="form-group">
+	                            {{ form.email.label(class="form-control-label") }}
+	                            {% if form.email.errors %}
+	                            	{{ form.email(class='form-control form-control-lg is-invalid') }}
+	                            	<div class="invalid-feedback">
+	                            		{% for errors in form.email.errors %}
+	                            		<span>{ error }</span>
+	                            		{% endfor %}
+	                            	</div>
+	                            {% else %}
+	                            	{{ form.email(class='form-control form-control-lg') }}
+	                            {% endif %}
+	                        </div>
+	                        <div class="form-group">
+	                            {{ form.password.label(class="form-control-label") }}
+	                            {% if form.password.errors %}
+	                            	{{ form.password(class='form-control form-control-lg is-invalid') }}
+	                            	<div class="invalid-feedback">
+	                            		{% for errors in form.password.errors %}
+	                            		<span>{ error }</span>
+	                            		{% endfor %}
+	                            	</div>
+	                            {% else %}
+	                            	{{ form.password(class='form-control form-control-lg') }}
+	                            {% endif %}
+	                        </div>
+	                        <div class="form-group">
+	                            {{ form.konfirmasi_password.label(class="form-control-label") }}
+	                            {% if form.konfirmasi_password.errors %}
+	                            	{{ form.konfirmasi_password(class='form-control form-control-lg is-invalid') }}
+	                            	<div class="invalid-feedback">
+	                            		{% for errors in form.konfirmasi_password.errors %}
+	                            		<span>{ error }</span>
+	                            		{% endfor %}
+	                            	</div>
+	                            {% else %}
+	                            	{{ form.konfirmasi_password(class='form-control form-control-lg') }}
+	                            {% endif %}
+	                        </div>
+	                        <br>
+	                        <div class="form-group">
+	                            {{ form.submit(class="form-submit") }}
+	                        </div>
+	                    </form>
+	                    <p class="loginhere">
+	                        Have already an account ? <a href="{{url_for('login_admin')}}" class="loginhere-link">Login here</a>
+	                    </p>
+	                </div>
+	            </div>
+	        </form>
+        </section>
+    </div>
+</div>
+
+{% endblock content %}
+
+<script src="{{url_for('static', filename='register/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='register/js/main.js')}}"></script>

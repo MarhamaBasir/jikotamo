@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="{{url_for('static', filename='register/fonts/material-icon/css/material-design-iconic-font.min.css')}}f">
+<link rel="stylesheet" href="{{url_for('static', filename='register/css/style.css')}}">
+{% extends "adminku/index_admin.html" %}
+{% block content %}
+	<form action="" method="POST" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-3">Data Umum</legend>
+			<div class="form-group">
+				{{ form.luas_desa.label(class="form-control-label") }}
+				{{ form.luas_desa(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.jumlah_dusun.label(class="form-control-label" ) }}
+				{{ form.jumlah_dusun(class='form-control form-control' ) }}
+			</div>
+			<div class="form-group">
+				{{ form.utara.label(class="form-control-label") }}
+				{{ form.utara(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.selatan.label(class="form-control-label") }}
+				{{ form.selatan(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.barat.label(class="form-control-label") }}
+				{{ form.barat(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.timur.label(class="form-control-label") }}
+				{{ form.timur(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.jarak_dari_kec.label(class="form-control-label") }}
+				{{ form.jarak_dari_kec(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.jarak_dari_kab.label(class="form-control-label") }}
+				{{ form.jarak_dari_kab(class='form-control form-control-lg') }}
+			</div>
+			<div class="form-group">
+				{{ form.jarak_dari_prov.label(class="form-control-label") }}
+				{{ form.jarak_dari_prov(class='form-control form-control-lg') }}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+	</form>  
+
+{% endblock content %}
+<script src="{{url_for('static', filename='register/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='register/js/main.js')}}"></script>
+<script src="{{url_for('static', filename='layout/js/w3.js')}}"></script>

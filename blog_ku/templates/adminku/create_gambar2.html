@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="{{url_for('static', filename='register/fonts/material-icon/css/material-design-iconic-font.min.css')}}f">
+<link rel="stylesheet" href="{{url_for('static', filename='register/css/style.css')}}">
+{% extends "adminku/index_admin.html" %}
+{% block content %}
+	<form action="" method="POST" enctype="multipart/form-data">
+		{{ form.hidden_tag() }}
+		<fieldset class="form-group">
+			<legend class="border-bottom mb-3">Data Struktur Organisasi</legend>
+			<div class="form-group">
+				{{ form.foto_organisasi.label() }}
+				{{ form.foto_organisasi(class='form-control-file') }}
+			</div>
+		</fieldset>
+		<div class="form-group">
+			{{ form.submit(class="btn btn-outline-info") }}
+		</div>
+	</form>  
+
+{% endblock content %}
+<script src="{{url_for('static', filename='register/vendor/jquery/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='register/js/main.js')}}"></script>
+<script src="{{url_for('static', filename='layout/js/w3.js')}}"></script>
